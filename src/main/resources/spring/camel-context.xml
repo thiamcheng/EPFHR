@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd        http://camel.apache.org/schema/spring       http://camel.apache.org/schema/spring/camel-spring.xsd">
+    <camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
+        <route id="_route1">
+            <from id="_from1" uri="netty4-http:http:0.0.0.0:9800/hr"/>
+            <setBody id="_setBody1">
+                <constant>{&#xd;
+  "refId": "AB12345678901234",&#xd;
+  "reqTime": "2020-03-30T12:16:07.124Z",&#xd;
+  "idNo": "700301-01-2345"&#xd;
+}</constant>
+            </setBody>
+            <to id="_to1" uri="netty4-http:http:node-red-git-nodered.mycluster-179309-bee7ed7e116952c03f0e15cdb555fa9a-0000.sng01.containers.appdomain.cloud:80/hr"/>
+        </route>
+    </camelContext>
+</beans>
